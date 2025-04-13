@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flower Searcher</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Flower Searcher</h1>
+    </header>
+
+    <main>
+        <div class="image-container">
+            <img src="../static/images/img1.jpeg" alt="花1">
+            <img src="../static/images/img2.jpeg" alt="花2">
+            <img src="../static/images/img3.jpeg" alt="花3">
+            <img src="../static/images/img4.jpeg" alt="花4">
+        </div>
+
+        <div id="description">
+            <p>見たいお花を都立公園から簡単に検索できるサービスです。</p>
+        </div>
+
+        <div id="selecter">
+            <div class="sel">
+                <select id="flowerSelect"></select>
+            </div>
+            <div class="sel">
+                <select id="parkSelect"></select>
+            </div>
+        </div>
+
+        <div id="info">
+            <div class="detailInfo">
+                <h3 id="flowerName">花名</h3>
+                <p id="term">見ごろ： </p>
+            </div>
+            <div class="detailInfo">
+                <h3 id="parkName">公園名</h3>
+                <p id="station">最寄り駅: </p>
+                <p id="distance">駅まで0m</p>
+            </div>
+        </div>
+
+        <iframe width="450" height="250" frameborder="0" style="border:0" referrerpolicy="no-referrer-when-downgrade"
+            src=""
+            allowfullscreen>
+        </iframe>
+    </main>
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

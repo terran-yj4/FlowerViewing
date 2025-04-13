@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Flower Viewing API
+  description: API for flower viewing parks and related information
+tags:
+  - name: flowers
+    description: 花関連の情報を取得する
+  - name: parks
+    description: 公園関連の情報を取得する
+paths:
+  /:
+    get:
+      summary: Get index page
+      operationId: getIndex
+      responses:
+        200:
+          description: HTML content of the index page
+          content:
+            text/html:
+              schema:
+                type: string
+  /flowers:
+    get:
+      tags:
+      - flowers
+      summary: Get list of flowers
+      operationId: getFlowers
+      responses:
+        200:
+          description: A list of flowers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flowers:
+                    type: array
+                    items:
+                      type: string
+  /flowers/{flower_name}:
+    get:
+      tags:
+      - flowers
+      summary: Get flower details
+      operationId: getFlower
+      parameters:
+        - name: flower_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Details of the flower
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flower:
+                    type: string
+                  parks:
+                    type: array
+                    items:
+                      type: string
+                  term:
+                    type: string
+  /flowers/{flower_name}/parks:
+    get:
+      tags:
+      - flowers
+      summary: Get parks for a flower
+      operationId: getFlowerParks
+      parameters:
+        - name: flower_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Parks where the flower can be viewed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  parks:
+                    type: array
+                    items:
+                      type: string
+  /flowers/{flower_name}/term:
+    get:
+      tags:
+      - flowers
+      summary: Get flowering term
+      operationId: getFlowerTerm
+      parameters:
+        - name: flower_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Flowering term of the flower
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  term:
+                    type: string
+  /parks:
+    get:
+      tags:
+      - parks
+      summary: Get list of parks
+      operationId: getParks
+      responses:
+        200:
+          description: A list of parks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  parks:
+                    type: array
+                    items:
+                      type: string
+  /parks/{park_name}/near_stations:
+    get:
+      tags:
+      - parks
+      summary: Get nearby stations for a park
+      operationId: getNearStations
+      parameters:
+        - name: park_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Nearby stations for the park
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  station:
+                    type: string
+                  distance:
+                    type: string
